@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="SerialPortTool.UserControls.DataShowUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SerialPortTool.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">保温瓶内温度</Label>
+        <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">直流马达</Label>
+        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                范围-12000lb~+12000lb
+            </Label.ToolTip>
+            张力(lb)
+        </Label>
+        <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                范围-50℃~220℃
+            </Label.ToolTip>
+            温度(℃)
+        </Label>
+        <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                原始采集电压值
+            </Label.ToolTip>
+            CCL(V)
+        </Label>
+        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                原始采集电压值
+            </Label.ToolTip>
+            SP(V)
+        </Label>
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                实际电缆头电压值
+            </Label.ToolTip>
+            缆头电压(V)
+        </Label>
+        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                实际马达电压值
+            </Label.ToolTip>
+            马达电压(V)
+        </Label>
+        <Label Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.ToolTip>
+                实际泥浆电阻率值
+            </Label.ToolTip>
+            泥浆电阻率(ohm-m)
+        </Label>
+        <Label Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">继电器状态</Label>
+    </Grid>
+</UserControl>
