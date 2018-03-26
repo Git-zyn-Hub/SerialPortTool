@@ -6,6 +6,15 @@
              xmlns:local="clr-namespace:SerialPortTool.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -22,9 +31,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">保温瓶内温度</Label>
-        <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">直流马达</Label>
-        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="0" Grid.Column="0" BorderThickness="1">保温瓶内温度</Label>
+        <Label Grid.Row="0" Grid.Column="1" BorderThickness="1">直流马达</Label>
+        <Label Grid.Row="0" Grid.Column="2">
             <Label.ToolTip>
                 范围-12000lb~+12000lb
             </Label.ToolTip>
@@ -67,24 +76,43 @@
             泥浆电阻率(ohm-m)
         </Label>
         <Label Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">继电器状态</Label>
-        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Text="{Binding DatasReal.保温瓶内温度}"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.直流马达}"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.张力}"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.温度}"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.CCL}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.保温瓶内温度}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.直流马达}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.张力}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.温度}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.CCL}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.SP}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.缆头电压}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.马达电压}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.泥浆电阻率}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasReal.继电器状态}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.SP}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.缆头电压}"></TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.马达电压}" ></TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Text="{Binding DatasFloat.泥浆电阻率}"></TextBlock>
     </Grid>
 </UserControl>

@@ -4,18 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerialPortTool"
+        xmlns:user="clr-namespace:SerialPortTool.UserControls"
         mc:Ignorable="d"
         Title="串口调试工具" Height="400" Width="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="3"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem x:Name="miConnect" Click="miConnect_Click" Header="连接"></MenuItem>
         </Menu>
+        <user:DataShowUserControl Grid.Row="1"></user:DataShowUserControl>
+        <GridSplitter Background="AntiqueWhite" VerticalAlignment="Stretch" HorizontalAlignment="Center" Height="3" Grid.Row="2"></GridSplitter>
+
 
     </Grid>
 </Window>
