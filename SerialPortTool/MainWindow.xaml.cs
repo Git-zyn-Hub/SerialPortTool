@@ -1,4 +1,5 @@
-﻿using SerialPortTool.UserControls;
+﻿using SerialPortTool.Classes;
+using SerialPortTool.UserControls;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -498,6 +499,13 @@ namespace SerialPortTool
             {
                 MessageBox.Show("" + ee.Message);
             }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            this.txtSend.Text = string.Empty;
+            this.dataShow.DatasFloat = new DataFloat();
+            this.dataShow.DatasReal = new DataString();
         }
     }
 

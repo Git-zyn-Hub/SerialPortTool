@@ -10,9 +10,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*" MinHeight="150"/>
             <RowDefinition Height="3"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MinHeight="100"/>
         </Grid.RowDefinitions>
         <Menu Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem x:Name="miConnect" Click="miConnect_Click" Header="连接"></MenuItem>
@@ -33,7 +33,10 @@
                          TextChanged="TextBox_TextChanged" KeyDown="TextBox_KeyDown">2000</TextBox>
                 <Label>ms/次</Label>
                 <Label x:Name="lblMessage"></Label>
-                <Button x:Name="btnSend" Width="60" HorizontalAlignment="Right" Margin="20,0" Click="btnSend_Click">发送</Button>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button x:Name="btnClear" Width="60"  Margin="10,0" Click="btnClear_Click">清空</Button>
+                    <Button x:Name="btnSend" Width="60" Margin="20,0" Click="btnSend_Click">发送</Button>
+                </StackPanel>
             </DockPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
