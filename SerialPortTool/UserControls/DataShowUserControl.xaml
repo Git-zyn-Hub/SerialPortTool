@@ -13,6 +13,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1 1 0 0"/>
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -31,88 +32,89 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" BorderThickness="1">保温瓶内温度</Label>
-        <Label Grid.Row="0" Grid.Column="1" BorderThickness="1">直流马达</Label>
+        <Label Grid.Row="0" Grid.Column="0">保温瓶内温度</Label>
+        <Label Grid.Row="0" Grid.Column="1">直流马达</Label>
         <Label Grid.Row="0" Grid.Column="2">
             <Label.ToolTip>
                 范围-12000lb~+12000lb
             </Label.ToolTip>
             张力(lb)
         </Label>
-        <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="0" Grid.Column="3">
             <Label.ToolTip>
                 范围-50℃~220℃
             </Label.ToolTip>
             温度(℃)
         </Label>
-        <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="0" Grid.Column="4" BorderThickness="1 1 1 0">
             <Label.ToolTip>
                 原始采集电压值
             </Label.ToolTip>
             CCL(V)
         </Label>
-        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="3" Grid.Column="0">
             <Label.ToolTip>
                 原始采集电压值
             </Label.ToolTip>
             SP(V)
         </Label>
-        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="3" Grid.Column="1">
             <Label.ToolTip>
                 实际电缆头电压值
             </Label.ToolTip>
             缆头电压(V)
         </Label>
-        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="3" Grid.Column="2">
             <Label.ToolTip>
                 实际马达电压值
             </Label.ToolTip>
             马达电压(V)
         </Label>
-        <Label Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Grid.Row="3" Grid.Column="3">
             <Label.ToolTip>
                 实际泥浆电阻率值
             </Label.ToolTip>
             泥浆电阻率(ohm-m)
         </Label>
-        <Label Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">继电器状态</Label>
-        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   Text="{Binding DatasReal.保温瓶内温度}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.直流马达}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.张力}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.温度}"></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.CCL}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.保温瓶内温度}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.直流马达}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.张力}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.温度}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.CCL}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.SP}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.缆头电压}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.马达电压}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.泥浆电阻率}"></TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasReal.继电器状态}"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.SP}"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.缆头电压}"></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.马达电压}" ></TextBlock>
-        <TextBlock Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Text="{Binding DatasFloat.泥浆电阻率}"></TextBlock>
+        <Label Grid.Row="3" Grid.Column="4" BorderThickness="1 1 1 0">继电器状态</Label>
+        <Label Grid.Row="1" Grid.Column="0" 
+                   Content="{Binding DatasReal.保温瓶内温度}"></Label>
+        <Label Grid.Row="1" Grid.Column="1"
+                   Content="{Binding DatasReal.直流马达}"></Label>
+        <Label Grid.Row="1" Grid.Column="2"
+                   Content="{Binding DatasReal.张力}"></Label>
+        <Label Grid.Row="1" Grid.Column="3"
+                   Content="{Binding DatasReal.温度}"></Label>
+        <Label Grid.Row="1" Grid.Column="4" BorderThickness="1 1 1 0"
+                   Content="{Binding DatasReal.CCL}"></Label>
+        <Label Grid.Row="2" Grid.Column="0"
+                   Content="{Binding DatasFloat.保温瓶内温度}"></Label>
+        <Label Grid.Row="2" Grid.Column="1"
+                   Content="{Binding DatasFloat.直流马达}"></Label>
+        <Label Grid.Row="2" Grid.Column="2"
+                   Content="{Binding DatasFloat.张力}"></Label>
+        <Label Grid.Row="2" Grid.Column="3"
+                   Content="{Binding DatasFloat.温度}"></Label>
+        <Label Grid.Row="2" Grid.Column="4" BorderThickness="1 1 1 0"
+                   Content="{Binding DatasFloat.CCL}"></Label>
+        <Label Grid.Row="4" Grid.Column="0"
+                   Content="{Binding DatasReal.SP}"></Label>
+        <Label Grid.Row="4" Grid.Column="1"
+                   Content="{Binding DatasReal.缆头电压}"></Label>
+        <Label Grid.Row="4" Grid.Column="2"
+                   Content="{Binding DatasReal.马达电压}"></Label>
+        <Label Grid.Row="4" Grid.Column="3"
+                   Content="{Binding DatasReal.泥浆电阻率}"></Label>
+        <Label Grid.Row="4" Grid.Column="4" BorderThickness="1 1 1 0"
+                   Content="{Binding DatasReal.继电器状态}"></Label>
+        <Label Grid.Row="5" Grid.Column="0" BorderThickness="1 1 0 1"
+                   Content="{Binding DatasFloat.SP}"></Label>
+        <Label Grid.Row="5" Grid.Column="1" BorderThickness="1 1 0 1"
+                   Content="{Binding DatasFloat.缆头电压}"></Label>
+        <Label Grid.Row="5" Grid.Column="2" BorderThickness="1 1 0 1"
+                   Content="{Binding DatasFloat.马达电压}" ></Label>
+        <Label Grid.Row="5" Grid.Column="3" BorderThickness="1 1 0 1"
+                   Content="{Binding DatasFloat.泥浆电阻率}"></Label>
+        <Label Grid.Row="5" Grid.Column="4" BorderThickness="1 1 1 1"></Label>
     </Grid>
 </UserControl>

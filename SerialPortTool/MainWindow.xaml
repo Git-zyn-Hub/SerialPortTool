@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerialPortTool"
         xmlns:user="clr-namespace:SerialPortTool.UserControls"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Loaded="Window_Loaded"
         Title="串口调试工具" Height="400" Width="700">
     <Grid>
         <Grid.RowDefinitions>
@@ -16,10 +16,41 @@
         </Grid.RowDefinitions>
         <Menu Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem x:Name="miConnect" Click="miConnect_Click" Header="连接"></MenuItem>
+            <MenuItem x:Name="miClosePort" Click="miClosePort_Click" Header="关闭串口"></MenuItem>
         </Menu>
-        <user:DataShowUserControl Grid.Row="1"></user:DataShowUserControl>
-        <GridSplitter Background="AntiqueWhite" VerticalAlignment="Stretch" HorizontalAlignment="Center" Height="3" Grid.Row="2"></GridSplitter>
+        <user:DataShowUserControl x:Name="dataShow" Grid.Row="1"></user:DataShowUserControl>
+        <GridSplitter Background="AntiqueWhite" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="3" Grid.Row="2"></GridSplitter>
 
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="83*"/>
+            </Grid.RowDefinitions>
+            <DockPanel VerticalAlignment="Center">
+                <CheckBox x:Name="cbHex" VerticalAlignment="Center" Checked="cbHex_Checked" Unchecked="cbHex_Unchecked">Hex发送</CheckBox>
+                <CheckBox x:Name="cbTimer" VerticalAlignment="Center" Checked="cbTimer_Checked" Unchecked="cbTimer_Unchecked">定时发送</CheckBox>
+                <TextBox x:Name="txtTimerInterval" Width="60" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                         TextChanged="TextBox_TextChanged" KeyDown="TextBox_KeyDown">2000</TextBox>
+                <Label>ms/次</Label>
+                <Label x:Name="lblMessage"></Label>
+                <Button x:Name="btnSend" Width="60" HorizontalAlignment="Right" Margin="20,0" Click="btnSend_Click">发送</Button>
+            </DockPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="分隔" x:Name="grpSplitor">
+                    <StackPanel>
+                        <RadioButton x:Name="rbVoidSplit" IsChecked="True" Checked="rbVoidSplit_Checked">无分隔符</RadioButton>
+                        <RadioButton x:Name="rbBlankSplit" Checked="rbBlankSplit_Checked">空格分隔</RadioButton>
+                        <RadioButton x:Name="rbDashSplit" Checked="rbDashSplit_Checked">'-'分隔</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                <TextBox Grid.Column="1" x:Name="txtSend" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"
+                 ></TextBox>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>

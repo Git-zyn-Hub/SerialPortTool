@@ -26,7 +26,7 @@ namespace SerialPortTool.UserControls
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(string name)
+        public void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
@@ -53,7 +53,7 @@ namespace SerialPortTool.UserControls
                 if (_datasFloat != value)
                 {
                     _datasFloat = value;
-                    OnPropertyChanged("Datasfloat");
+                    OnPropertyChanged("DatasFloat");
                 }
             }
         }

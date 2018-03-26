@@ -63,6 +63,7 @@ namespace SerialPortTool.UserControls
             {
                 if (!_mainWindow.SerialPort.IsOpen)
                 {
+                    _mainWindow.SerialPort = new SerialPort();
                     _mainWindow.SerialPort.PortName = (string)this.cmbSerialPort.SelectedValue;
                     int baudRate;
                     if (!int.TryParse((string)this.cmbBaudRate.SelectedValue, out baudRate))
@@ -87,7 +88,8 @@ namespace SerialPortTool.UserControls
                 }
                 else
                 {
-                    MessageBox.Show("端口已经打开！");
+                    MessageBox.Show("串口已经打开！");
+                    _mainWindow.messageCenter("串口已经打开", DataLevel.Normal);
                 }
             }
             catch (Exception ee)
