@@ -133,15 +133,15 @@ namespace SerialPortTool
                 messageCenter("接收到的数据帧头不为0x47", DataLevel.Warning);
                 return;
             }
-            dataShow.DatasFloat.保温瓶内温度 = BitConverter.ToSingle(receivedData, 1);
-            dataShow.DatasFloat.直流马达 = BitConverter.ToSingle(receivedData, 5);
-            dataShow.DatasFloat.张力 = BitConverter.ToSingle(receivedData, 9);
-            dataShow.DatasFloat.温度 = BitConverter.ToSingle(receivedData, 13);
-            dataShow.DatasFloat.CCL = BitConverter.ToSingle(receivedData, 17);
-            dataShow.DatasFloat.SP = BitConverter.ToSingle(receivedData, 21);
-            dataShow.DatasFloat.缆头电压 = BitConverter.ToSingle(receivedData, 25);
-            dataShow.DatasFloat.马达电压 = BitConverter.ToSingle(receivedData, 29);
-            dataShow.DatasFloat.泥浆电阻率 = BitConverter.ToSingle(receivedData, 33);
+            dataShow.DatasFloat.保温瓶内温度 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 1);
+            dataShow.DatasFloat.直流马达 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 5);
+            dataShow.DatasFloat.张力 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 9);
+            dataShow.DatasFloat.温度 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 13);
+            dataShow.DatasFloat.CCL = Bytes2SingleIEEE754.Bytes2Single(receivedData, 17);
+            dataShow.DatasFloat.SP = Bytes2SingleIEEE754.Bytes2Single(receivedData, 21);
+            dataShow.DatasFloat.缆头电压 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 25);
+            dataShow.DatasFloat.马达电压 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 29);
+            dataShow.DatasFloat.泥浆电阻率 = Bytes2SingleIEEE754.Bytes2Single(receivedData, 33);
 
             dataShow.DatasReal.保温瓶内温度 = getRealValueString(receivedData, 1);
             dataShow.DatasReal.直流马达 = getRealValueString(receivedData, 5);

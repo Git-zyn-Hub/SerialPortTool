@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Bytes2SingleIEEE754.cs" />
     <Compile Include="Classes\DataFloat.cs" />
     <Compile Include="Classes\DataString.cs" />
     <Compile Include="UserControls\DataShowUserControl.xaml.cs">
