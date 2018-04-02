@@ -11,14 +11,14 @@ namespace SerialPortTool.Classes
         /// <summary>
         /// 根据IEEE754将4个字节，转换为单精度浮点数
         /// </summary>
-        /// <param name="data">要转换的字节数组</param>
+        /// <param name="datas">要转换的字节数组</param>
         /// <param name="startIndex">起始索引</param>
         /// <returns></returns>
         public static float Bytes2Single(byte[] datas, int startIndex)
         {
             if (datas.Length < startIndex + 4)
             {
-                throw new Exception("起始索引超出数组界限。");
+                throw new Exception("起始索引+4超出数组界限。");
             }
             int data1 = datas[startIndex];
             int data2 = datas[startIndex + 1];

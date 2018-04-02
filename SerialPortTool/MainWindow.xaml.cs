@@ -35,6 +35,8 @@ namespace SerialPortTool
         private DispatcherTimer timer = new DispatcherTimer();
         private byte[] sendData;
         private SolidColorBrush _saveMenuColor;
+        private byte[] _saveFirstRecv;
+        private int _hitCount = 0;
         public SerialPort SerialPort
         {
             get { return _serialPort1; }
@@ -98,11 +100,18 @@ namespace SerialPortTool
                 //this._originData.AddReceiveData(receivedData, receivedData.Length);
                 //}));
 
-                if (receivedData.Length - 2 < 0)
+                this.Dispatcher.Invoke(new Action(() =>
                 {
-                    MessageBox.Show("接收数据长度小于2");
-                    return;
-                }
+                    if (handlePinJie(ref receivedData))
+                    {
+
+                    }
+                    else
+                    {
+                        handleRecvData(receivedData);
+                    }
+                }));
+
                 //计算校验和
                 //checkSum = CheckSum.CalcCheckSum(receivedData, receivedData.Length - 2);
                 //if (!checkCheckSum(checkSum, receivedData))
@@ -110,10 +119,6 @@ namespace SerialPortTool
                 //    MessageBox.Show("校验和出错！");
                 //    return;
                 //}
-                this.Dispatcher.Invoke(new Action(() =>
-                {
-                    handleRecvData(receivedData);
-                }));
             }
             catch (Exception ee)
             {
@@ -121,11 +126,52 @@ namespace SerialPortTool
             }
         }
 
+        private bool handlePinJie(ref byte[] receivedData)
+        {
+            if (receivedData.Length - 45 < 0)
+            {
+                messageCenter("接收数据长度小于45,拼接", DataLevel.Warning);
+                _hitCount++;
+                if (_hitCount == 2)
+                {
+                    List<byte> byteSource = new List<byte>();
+                    if (_saveFirstRecv.Length == 1)
+                    {
+                        byteSource.Add(_saveFirstRecv[0]);
+                    }
+                    else
+                    {
+                        byteSource.AddRange(_saveFirstRecv);
+                    }
+                    if (receivedData.Length == 1)
+                    {
+                        byteSource.Add(receivedData[0]);
+                    }
+                    else
+                    {
+                        byteSource.AddRange(receivedData);
+                    }
+                    receivedData = byteSource.ToArray();
+                    _hitCount = 0;
+                    return false;
+                }
+                else
+                {
+                    _saveFirstRecv = receivedData;
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void handleRecvData(byte[] receivedData)
         {
-            if (receivedData.Length < 41)
+            if (receivedData.Length < 45)
             {
-                messageCenter("接收长度小于41字节", DataLevel.Warning);
+                messageCenter("接收长度小于45字节", DataLevel.Warning);
                 return;
             }
             if (receivedData[0] != 0x47)
