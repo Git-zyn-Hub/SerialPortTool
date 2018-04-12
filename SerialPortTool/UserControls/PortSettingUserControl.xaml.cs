@@ -61,9 +61,12 @@ namespace SerialPortTool.UserControls
         {
             try
             {
-                if (!_mainWindow.SerialPort.IsOpen)
+                if (_mainWindow.SerialPort == null)
                 {
                     _mainWindow.SerialPort = new SerialPort();
+                }
+                if (!_mainWindow.SerialPort.IsOpen)
+                {
                     _mainWindow.SerialPort.PortName = (string)this.cmbSerialPort.SelectedValue;
                     int baudRate;
                     if (!int.TryParse((string)this.cmbBaudRate.SelectedValue, out baudRate))

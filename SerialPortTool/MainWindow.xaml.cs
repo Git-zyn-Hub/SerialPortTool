@@ -314,6 +314,11 @@ namespace SerialPortTool
 
         private void sendWithMsg(byte[] sendData)
         {
+            if (sendData == null)
+            {
+                messageCenter("发送数据不合法，发送失败", DataLevel.Error);
+                return;
+            }
             if (Send(sendData))
             {
                 messageCenter("发送成功", DataLevel.Normal);
@@ -468,7 +473,7 @@ namespace SerialPortTool
 
         private bool Send(byte[] sendData)
         {
-            if (_serialPort1.IsOpen)
+            if (_serialPort1.IsOpen && sendData != null)
             {
                 _serialPort1.Write(sendData, 0, sendData.Length);
                 return true;
